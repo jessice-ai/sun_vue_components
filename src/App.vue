@@ -8,7 +8,7 @@
       <!-- 组件之间数据传递 传递方法函数-->
       <sun_add :sun_add_com="sun_add_com"/>
       <!-- 组件之间数据传递 传递数组-->
-      <sun_list :sun_commonts="sun_commonts" />
+      <sun_list :sun_commonts="sun_commonts" :sun_del_com="sun_del_com" />
     </div>
   </div>
 </template>
@@ -40,6 +40,9 @@ export default {
     //数据在那个组件，就把增删改方法添加到那个组件中
     sun_add_com(val){
       this.sun_commonts.unshift(val) //把信息添加到数组的前面
+    },
+    sun_del_com(index){
+      this.sun_commonts.splice(index,1) 
     }
   },
   //映射组件
