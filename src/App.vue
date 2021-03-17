@@ -1,12 +1,14 @@
 <template>
   <div id="app">
+
     <div class="sun_top">
       <sun_top />
     </div>
     <div class="sunbody">
-      <sun_add />
-      <!-- 组件之间数据传递-->
-      <sun_list :sun_commonts="sun_commonts"/>
+      <!-- 组件之间数据传递 传递方法函数-->
+      <sun_add :sun_add_com="sun_add_com"/>
+      <!-- 组件之间数据传递 传递数组-->
+      <sun_list :sun_commonts="sun_commonts" />
     </div>
   </div>
 </template>
@@ -31,6 +33,13 @@ export default {
           name:"sun3",content:"发表内容3"
         },
       ]
+    }
+  },
+  methods:{
+    //添加评论
+    //数据在那个组件，就把增删改方法添加到那个组件中
+    sun_add_com(val){
+      this.sun_commonts.unshift(val) //把信息添加到数组的前面
     }
   },
   //映射组件
